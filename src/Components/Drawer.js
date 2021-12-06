@@ -11,7 +11,6 @@ function Drawer(props) {
 
     const [showDrawer, setShowDrawer] = useState(false);
     const [btnImage, setBtnImage] = useState(FaIcons.FaBars);
-
     const HandleDrawer = ()=> {
         setShowDrawer(!showDrawer);
         setBtnImage(showDrawer?FaIcons.FaBars : FaIcons.FaRegWindowClose);
@@ -21,21 +20,26 @@ function Drawer(props) {
 
     return (
         <div className = "drawer">
-            <a style={{position:"absolute", left:"20px", top:"20px", zIndex: "10"}} href='#' className="icon" onClick= {HandleDrawer}>
+            {props.position === "left" ? <a style={{position:"fixed", left :"10px", top:"20px", zIndex: "10"}} className="icon" onClick= {HandleDrawer} href = "#">
             {btnImage}
-            </a>
-            {showDrawer?<div className ={`drawer ${props.position} opened`} >
+            </a> : <a style={{position:"fixed", right :"10px", top:"20px", zIndex: "10"}} className="icon" onClick= {HandleDrawer} href = "#">
+            {btnImage}
+            </a>}
+            
+            {showDrawer === true ?
+            <div className ={`drawer ${props.position} opened`} >
                 <div className="drawer-header" style = {props.headerStyle}>{header}</div>
                 <div className="drawer-body">{body}</div>
                 <div className="drawer-footer">{footer}</div>
-            </div> : <div className={`drawer closed-${props.position}`} ></div>}
+            </div> 
+            : 
+            <div className={`drawer closed-${props.position}`} ></div>}
         </div>
         
     )
 }
 
 const Header = (props) =>{
-    console.log(props.mockProperty);
     return props.children;
 }
 Header.displayName = "Header";
@@ -52,5 +56,11 @@ const Footer = (props) =>{
 }
 Footer.displayName = "Footer";
 Drawer.Footer = Footer;
+
+
+Drawer.defaultProps = {
+    position: "left"
+  }
+    
 
 export default Drawer
