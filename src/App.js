@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Drawer from "./Components/Drawer";
+import * as FaIcons from 'react-icons/fa'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Drawer position = "left">
+          <Drawer.Header>
+            <div className = "sampleHeader" style = {{height: "20vh", display: "flex",  justifyContent: "center",  margin: "2px",  border: "1px solid red"}}>
+              <h1 style = {{padding: "0px 5px"}}>I'm Header</h1>
+            </div>
+          </Drawer.Header>
+          <Drawer.Body>
+            <div className = "sampleBody" style = {{height:"70vh", width:"100%", display:"grid", overflow:"scroll", alignItems: "center",gridAutoFlow: "row", gridAutoRows: "25%", gridTemplateColumns: "auto auto", gridTemplateRows: "unset",}}>
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+              <FaIcons.FaHeading className="body-item" />
+            </div>
+          </Drawer.Body>
+          <Drawer.Footer>
+            <div className="sampleFooter" style={{display: "flex", margin: "2px", border: "1px solid green", justifyContent: "center",  height: "20%", width: "100%", background:"black", color: "white", padding: "2% 0"}} >
+              I'm Footer
+            </div>
+          </Drawer.Footer>
+      </Drawer>
     </div>
   );
 }
