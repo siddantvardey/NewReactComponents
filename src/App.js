@@ -4,14 +4,14 @@ import * as FaIcons from 'react-icons/fa'
 function App() {
   return (
     <div>
-      <Drawer position = "right">
+      <Drawer anchor = "right">
           <Drawer.Header>
-            <div className = "sampleHeader" style = {{height: "20vh", display: "flex",  justifyContent: "center",  margin: "2px",  border: "1px solid red"}}>
+            <div className = "sampleHeader" style = {{height: "20vh", display: "flex",  justifyContent: "center",  margin: "2px"}}>
               <h1 style = {{padding: "0px 5px"}}>I'm Header</h1>
             </div>
           </Drawer.Header>
           <Drawer.Body>
-            <div className = "sampleBody" style = {{height:"70vh", width:"100%", display:"grid", overflow:"scroll", alignItems: "center",gridAutoFlow: "row", gridAutoRows: "25%", gridTemplateColumns: "auto auto", gridTemplateRows: "unset",}}>
+            <div className = "sampleBody" style = {{height:"70vh", width:"100%", display:"grid", overflow:"scroll", alignItems: "center",gridAutoFlow: "row", gridAutoRows: "25%", gridTemplateColumns: "auto auto", gridTemplateRows: "unset", gridGap: "20px"}}>
               <FaIcons.FaHive className="body-item" />
               <FaIcons.FaHive className="body-item" />
               <FaIcons.FaHive className="body-item" />
